@@ -2,156 +2,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi canal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi sala de reacción</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  background: #0e0e10;
-  color: #efeff1;
-  font-family: Arial, sans-serif;
-}
+    body {
+      margin: 0;
+      background: #0e0e10;
+      color: #efeff1;
+      font-family: Arial, sans-serif;
+    }
 
-header {
-  height: 60px;
-  background: #18181b;
-  display: flex;
-  align-items: center;
-  padding: 0 22px;
-  border-bottom: 1px solid #303035;
-}
+    header {
+      padding: 18px 24px;
+      background: #18181b;
+      border-bottom: 1px solid #303035;
+      color: #bf94ff;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-.logo {
-  color: #bf94ff;
-  font-size: 23px;
-  font-weight: bold;
-}
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 16px;
+      padding: 20px;
+    }
 
-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  min-height: calc(100vh - 60px);
-}
+    .panel {
+      background: #18181b;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-.content {
-  padding: 20px;
-  min-width: 0;
-}
+    .heading {
+      padding: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #303035;
+    }
 
-.player {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-}
+    .player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
 
-.player iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-.info {
-  padding: 18px 0;
-}
+    .description {
+      padding: 16px;
+      color: #adadb8;
+    }
 
-.info h1 {
-  margin: 0 0 8px;
-  font-size: 22px;
-}
+    .chat {
+      min-height: 400px;
+    }
 
-.info p {
-  color: #adadb8;
-  margin: 0;
-}
+    .chat-player {
+      height: 600px;
+    }
 
-.chat {
-  background: #18181b;
-  border-left: 1px solid #303035;
-  display: flex;
-  flex-direction: column;
-  min-height: 400px;
-}
+    @media (max-width: 800px) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
 
-.chat-title {
-  padding: 18px;
-  text-align: center;
-  font-weight: bold;
-  border-bottom: 1px solid #303035;
-}
+      .chat {
+        min-height: 350px;
+      }
 
-.chat-body {
-  flex: 1;
-  padding: 16px;
-  color: #adadb8;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.chat-note {
-  padding: 14px;
-  border-top: 1px solid #303035;
-  font-size: 12px;
-  color: #adadb8;
-}
-
-@media (max-width: 800px) {
-  main {
-    grid-template-columns: 1fr;
-  }
-
-  .content {
-    padding: 12px;
-  }
-
-  .chat {
-    min-height: 260px;
-    border-left: 0;
-    border-top: 1px solid #303035;
-  }
-}
-</style>
+      .chat-player {
+        height: 450px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <div class="logo">Mi canal</div>
-</header>
+  <header>Mi sala de reacción</header>
 
-<main>
-  <section class="content">
-    <div class="player">
-      <iframe
-        src="https://ok.ru/videoembed/17142258146947?nochat=1"
-        title="Reproductor de video"
-        allow="autoplay; fullscreen"
-        allowfullscreen>
-      </iframe>
-    </div>
+  <main>
+    <section class="panel">
+      <div class="heading">Mi canal de Twitch</div>
 
-    <div class="info">
-      <h1>Viendo juntos</h1>
-      <p>Bienvenido a la transmisión.</p>
-    </div>
-  </section>
+      <div class="player">
+        <iframe
+          src="https://player.twitch.tv/?channel=fernandororonoa&parent=mi-reproductor-lyart.vercel.app"
+          title="Mi transmisión de Twitch"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <aside class="chat">
-    <div class="chat-title">Chat de la transmisión</div>
-    <div class="chat-body">
-      Este espacio está preparado para el chat.
-      <br><br>
-      Por ahora, no está conectado a un chat en vivo.
-    </div>
-    <div class="chat-note">
-      Interfaz personalizada inspirada en plataformas de streaming.
-    </div>
-  </aside>
-</main>
+      <div class="description">
+        Bienvenido a mi sala de reacción.
+      </div>
+    </section>
+
+    <section class="panel chat">
+      <div class="heading">Chat de Twitch</div>
+
+      <div class="chat-player">
+        <iframe
+          src="https://www.twitch.tv/embed/fernandororonoa/chat?parent=mi-reproductor-lyart.vercel.app&darkpopout"
+          title="Chat de Twitch">
+        </iframe>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
 ```
