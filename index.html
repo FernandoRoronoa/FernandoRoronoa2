@@ -1,46 +1,157 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi reproductor OK.ru</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 24px;
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi canal</title>
 
-    h1 {
-      text-align: center;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .player {
-      width: 100%;
-      max-width: 1100px;
-      aspect-ratio: 16 / 9;
-      margin: 24px auto;
-    }
+body {
+  margin: 0;
+  background: #0e0e10;
+  color: #efeff1;
+  font-family: Arial, sans-serif;
+}
 
-    .player iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-  </style>
+header {
+  height: 60px;
+  background: #18181b;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  border-bottom: 1px solid #303035;
+}
+
+.logo {
+  color: #bf94ff;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  min-height: calc(100vh - 60px);
+}
+
+.content {
+  padding: 20px;
+  min-width: 0;
+}
+
+.player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.info {
+  padding: 18px 0;
+}
+
+.info h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.info p {
+  color: #adadb8;
+  margin: 0;
+}
+
+.chat {
+  background: #18181b;
+  border-left: 1px solid #303035;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.chat-title {
+  padding: 18px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #303035;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 16px;
+  color: #adadb8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.chat-note {
+  padding: 14px;
+  border-top: 1px solid #303035;
+  font-size: 12px;
+  color: #adadb8;
+}
+
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  .chat {
+    min-height: 260px;
+    border-left: 0;
+    border-top: 1px solid #303035;
+  }
+}
+</style>
 </head>
-<body>
-  <h1>Mi directo</h1>
 
-  <div class="player">
-    <iframe
-      src="https://ok.ru/videoembed/17142258146947?nochat=1"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-  </div>
+<body>
+<header>
+  <div class="logo">Mi canal</div>
+</header>
+
+<main>
+  <section class="content">
+    <div class="player">
+      <iframe
+        src="https://ok.ru/videoembed/17142258146947?nochat=1"
+        title="Reproductor de video"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="info">
+      <h1>Viendo juntos</h1>
+      <p>Bienvenido a la transmisión.</p>
+    </div>
+  </section>
+
+  <aside class="chat">
+    <div class="chat-title">Chat de la transmisión</div>
+    <div class="chat-body">
+      Este espacio está preparado para el chat.
+      <br><br>
+      Por ahora, no está conectado a un chat en vivo.
+    </div>
+    <div class="chat-note">
+      Interfaz personalizada inspirada en plataformas de streaming.
+    </div>
+  </aside>
+</main>
 </body>
 </html>
+```
